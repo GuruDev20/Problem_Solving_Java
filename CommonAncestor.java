@@ -25,31 +25,58 @@ public class CommonAncestor {
         }
         return root;
     }
-    public Node findCommonAncestor(Node root,int a,int b){ 
-        if(root==null){
+
+    public LinkedHashSet<Node> findPathToNode(Node root, int data) {
+        if (root == null){
             return null;
         }
-        if(root.data>a && root.data>b){
-            return findCommonAncestor(root.left, a, b);
+        LinkedHashSet<Node> path = new LinkedHashSet<>();
+        while (root != null) {
+            path.add(root);
+            if (root.data == data){
+                break;
+            }
+            else if (data < root.data){
+                root = root.left;
+            }
+            else{
+                root = root.right;
+            }
         }
-        else if(root.data< a && root.data<b){
-            return findCommonAncestor(root.right, a, b);
-        }
-        else{
-            return root;
-        }
+        return path;
     }
+
+    public LinkedHashSet<Node> findCommonAncestorPath(Node root, int a, int b) {
+        if (root == null){
+            return null;
+        }
+        LinkedHashSet<Node> pathToA = findPathToNode(root, a);
+        LinkedHashSet<Node> pathToB = findPathToNode(root, b);
+        if (pathToA == null || pathToB == null){
+            return null;
+        }
+        pathToA.retainAll(pathToB);
+        return pathToA;
+    }
+
     public static void main(String[] args) {
-        Scanner in=new Scanner(System.in);
-        CommonAncestor obj=new CommonAncestor();
+        Scanner in = new Scanner(System.in);
+        CommonAncestor obj = new CommonAncestor();
         int n=in.nextInt();
         for(int i=0;i<n;i++){
             obj.insert(in.nextInt());
         }
-        int a=in.nextInt();
-        int b=in.nextInt();
-        Node common=obj.findCommonAncestor(root,a,b);
-        System.out.println(common.data);
+        int a = in.nextInt();
+        int b = in.nextInt();
+        LinkedHashSet<Node> commonPath = obj.findCommonAncestorPath(root, a, b);
+        if (commonPath != null) {
+            System.out.println("Common Ancestor Path:");
+            for (Node node : commonPath) {
+                System.out.print(node.data + " ");
+            }
+        } else {
+            System.out.println("Nodes not found.");
+        }
         in.close();
     }
 }
