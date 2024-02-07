@@ -8,7 +8,7 @@ class Node{
         left=right=null;
     }
 }
-public class LeftViewBST {
+public class RightViewBST {
     public static Node root=null;
     public void insert(int data){
         root=insertRec(root,data);
@@ -26,10 +26,12 @@ public class LeftViewBST {
         return root;
     }
     int maxLevel = 0;
-    public void leftView() {
-        leftView(root, 1);
+
+    public void rightView() {
+        rightView(root, 1);
     }
-    public void leftView(Node root, int level) {
+
+    public void rightView(Node root, int level) {
         if (root == null) {
             return;
         }
@@ -37,17 +39,17 @@ public class LeftViewBST {
             System.out.print(root.data + " ");
             maxLevel = level;
         }
-        leftView(root.left, level + 1);
-        leftView(root.right, level + 1);
+        rightView(root.right, level + 1);
+        rightView(root.left, level + 1);
     }
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        LeftViewBST obj=new LeftViewBST();
+        RightViewBST obj=new RightViewBST();
         int n=in.nextInt();
         for(int i=0;i<n;i++){
             obj.insert(in.nextInt());
         }
-        obj.leftView();
+        obj.rightView();
         in.close();
     }
 }
