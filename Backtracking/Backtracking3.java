@@ -1,3 +1,4 @@
+package Backtracking;
 import java.util.*;
 public class Backtracking3{
     public static boolean findSolution(int i,int j,int[][] a,int[][] sol,int n){
