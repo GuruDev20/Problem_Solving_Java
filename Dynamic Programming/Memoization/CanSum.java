@@ -1,3 +1,4 @@
+package Memoization;
 import java.util.*;
 public class CanSum {
     public static boolean canSum(int amount,List<Integer> numbers){

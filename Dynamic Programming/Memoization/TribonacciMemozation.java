@@ -1,3 +1,4 @@
+package Memoization;
 import java.util.*;
 public class TribonacciMemozation {
     private static HashMap<Integer,Integer> memo=new HashMap<>();

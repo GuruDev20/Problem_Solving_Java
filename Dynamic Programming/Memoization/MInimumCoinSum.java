@@ -1,3 +1,4 @@
+package Memoization;
 import java.util.*;
 public class MInimumCoinSum {
     public static int minCoinSum(int amount,List<Integer> coins){

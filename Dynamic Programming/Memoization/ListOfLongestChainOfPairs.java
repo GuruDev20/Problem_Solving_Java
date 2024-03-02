@@ -1,3 +1,4 @@
+package Memoization;
 import java.util.*;
 public class ListOfLongestChainOfPairs{
     public static int[][] longestPair(int[][] pair){

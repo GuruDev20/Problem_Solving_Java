@@ -1,3 +1,4 @@
+package Memoization;
 import java.util.*;
 public class FibonacciMemozation{
     private static HashMap<Integer, Integer> memo=new HashMap<>();

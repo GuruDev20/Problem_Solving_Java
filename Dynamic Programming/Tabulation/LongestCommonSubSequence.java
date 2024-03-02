@@ -1,3 +1,4 @@
+package Tabulation;
 import java.util.*;
 public class LongestCommonSubSequence {
     public static int longestCommonSubSequence(char[] a,char[] b,int m,int n){
