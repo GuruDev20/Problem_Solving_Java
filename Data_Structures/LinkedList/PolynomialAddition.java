@@ -1,4 +1,3 @@
-package Data_Structures.LinkedList;
 import java.util.*;
 class Polynomial{
     class Node{
