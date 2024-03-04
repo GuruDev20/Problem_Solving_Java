@@ -1,14 +1,14 @@
 import java.util.*;
-class Node{
-    int data;
-    Node left;
-    Node right;
-    public Node(int data){
-        this.data = data;
-        left=right=null;
-    }
-}
 public class InsertionBST {
+    class Node{
+        int data;
+        Node left;
+        Node right;
+        public Node(int data){
+            this.data = data;
+            left=right=null;
+        }
+    }
     private static Node root=null;
     public Node insert(Node node,int data){
         if(node==null){

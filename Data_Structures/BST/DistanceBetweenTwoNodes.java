@@ -1,14 +1,14 @@
 import java.util.*;
-class Node{
-    int data;
-    Node left;
-    Node right;
-    public Node(int data){
-        this.data=data;
-        left=right=null;
-    }
-}
 public class DistanceBetweenTwoNodes {
+    class Node{
+        int data;
+        Node left;
+        Node right;
+        public Node(int data){
+            this.data = data;
+            left=right=null;
+        }
+    }
     public static Node root=null;
     public void insert(int data){
         root=insertRec(root,data);

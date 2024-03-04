@@ -1,14 +1,14 @@
 import java.util.*;
-class Node{
-    int data;
-    Node left;
-    Node right;
-    public Node(int data){
-        this.data=data;
-        left=right=null;
-    }
-}
 public class PostOrderToBST {
+    class Node{
+        int data;
+        Node left;
+        Node right;
+        public Node(int data){
+            this.data = data;
+            left=right=null;
+        }
+    }
     public static Node root=null;
     public Node constructBST(int[] a,int start,int end){
         if(start>end){
