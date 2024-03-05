@@ -35,15 +35,15 @@ public class InsertionBST {
             return;
         }
         System.out.print(node.data+" ");
-        inorder(node.left);
-        inorder(node.right);
+        preorder(node.left);
+        preorder(node.right);
     }
     public void postorder(Node node){
         if(node==null){
             return;
         }
-        inorder(node.left);
-        inorder(node.right);
+        postorder(node.left);
+        postorder(node.right);
         System.out.print(node.data+" ");
     }
     public static void main(String[] args) {
