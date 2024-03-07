@@ -2,8 +2,7 @@ import java.util.*;
 public class NearestBinaryPalindrome{
     public static boolean isPalindrome(String str){
         StringBuilder sb=new StringBuilder(str);
-        String res=sb.reverse().toString();
-        return str.equals(res)?true:false;
+        return str.equals(sb.reverse().toString());
     }
     public static int nearestPalindrome(int n){
         if(isPalindrome(Integer.toBinaryString(n))){
