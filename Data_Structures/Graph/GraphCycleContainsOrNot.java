@@ -43,14 +43,17 @@ public class GraphCycleContainsOrNot {
         int edges=in.nextInt();
         GraphCycleContainsOrNot graph=new GraphCycleContainsOrNot(vertices);
         for(int i=0;i<edges;i++){
-            graph.addEdges(in.nextInt(),in.nextInt());
+            int src=in.nextInt();
+            int dest=in.nextInt();
+            graph.addEdges(src-1,dest-1);
         }
         if(graph.isCyclic()){
-            System.out.print("true");
+            System.out.print("YES");
         }
         else{
-            System.out.print("false");
+            System.out.print("NO");
         }
         in.close();
     }
+
 }
