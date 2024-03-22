@@ -1,14 +1,15 @@
+package Single;
 import java.util.*;
-public class Reverse {
+public class InsertAtPosition {
     class Node{
         int data;
         Node next;
         public Node(int data){
             this.data=data;
-            next=null;
+            this.next=null;
         }
     }
-    private static Node head=null;
+    public static Node head=null;
     public void insert(int data){
         Node newNode=new Node(data);
         if(head==null){
@@ -22,40 +23,43 @@ public class Reverse {
             temp.next=newNode;
         }
     }
-
     public void display(){
         Node current=head;
         while(current!=null){
             System.out.print(current.data+" ");
             current=current.next;
         }
-        System.out.println();
     }
-
-    public void reverse(){
-        if(head==null){
-            return;
+    public void add(int pos,int data){ 
+        Node newNode=new Node(data);
+        if(pos==1){
+            newNode.next=head;
+            head=newNode;
         }
-        Node prev=null;
-        Node current=head;
-        Node next=null;
-        while(current!=null){
-            next=current.next;
-            current.next=prev;
-            prev=current;
-            current=next;
+        else{
+            Node temp=head;
+            for(int i=1;i<pos-1 && temp!=null;i++){
+                temp=temp.next;
+            }
+            if(temp==null){
+                System.out.println("Invalid position"+pos);
+                return;
+            }
+            newNode.next=temp.next;
+            temp.next=newNode;
         }
-        head=prev;
     }
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        Reverse obj=new Reverse();
+        InsertAtPosition obj=new InsertAtPosition();
         int n=in.nextInt();
         for(int i=0;i<n;i++){
             obj.insert(in.nextInt());
         }
         obj.display();
-        obj.reverse();
+        int pos=in.nextInt();
+        int val=in.nextInt();
+        obj.add(pos,val);
         obj.display();
         in.close();
     }

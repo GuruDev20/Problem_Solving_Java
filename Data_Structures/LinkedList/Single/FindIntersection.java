@@ -1,5 +1,6 @@
+package Single;
 import java.util.*;
-public class MergeTwoLinkedList{
+public class FindIntersection {
     class Node{
         int data;
         Node next;
@@ -29,43 +30,34 @@ public class MergeTwoLinkedList{
             current=current.next;
         }
     }
-    public static MergeTwoLinkedList mergeTwoList(MergeTwoLinkedList obj1,MergeTwoLinkedList obj2){
-        MergeTwoLinkedList merge=new MergeTwoLinkedList();
+    public static FindIntersection findCommon(FindIntersection obj1,FindIntersection obj2){
+        FindIntersection result=new FindIntersection();
         Node temp1=obj1.head;
-        Node temp2=obj2.head;
-        while(temp1!=null && temp2!=null){
-            if(temp1.data<temp2.data){
-                merge.insert(temp1.data);
-                temp1=temp1.next;
-            }
-            else{
-                merge.insert(temp2.data);
+        while(temp1!=null){
+            Node temp2=obj2.head;
+            while(temp2!=null){
+                if(temp1.data==temp2.data){
+                    result.insert(temp1.data);
+                }
                 temp2=temp2.next;
             }
-        }
-        while(temp1!=null){
-            merge.insert(temp1.data);
             temp1=temp1.next;
         }
-        while(temp2!=null){
-            merge.insert(temp2.data);
-            temp2=temp2.next;
-        }
-        return merge;
+        return result;
     }
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        MergeTwoLinkedList obj1=new MergeTwoLinkedList();
+        FindIntersection obj1=new FindIntersection();
         int m=in.nextInt();
         for(int i=0;i<m;i++){
             obj1.insert(in.nextInt());
         }
-        MergeTwoLinkedList obj2=new MergeTwoLinkedList();
+        FindIntersection obj2=new FindIntersection();
         int n=in.nextInt();
         for(int i=0;i<n;i++){
             obj2.insert(in.nextInt());
         }
-        MergeTwoLinkedList obj3=MergeTwoLinkedList.mergeTwoList(obj1,obj2);
+        FindIntersection obj3=FindIntersection.findCommon(obj1,obj2);
         obj3.display();
         in.close();
     }

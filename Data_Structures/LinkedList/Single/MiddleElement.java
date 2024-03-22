@@ -1,5 +1,6 @@
+package Single;
 import java.util.*;
-public class Deletion {
+public class MiddleElement {
     class Node{
         int data;
         Node next;
@@ -8,8 +9,7 @@ public class Deletion {
             this.next=null;
         }
     }
-
-    public static Node head=null;
+    private Node head=null;
     public void insert(int data){
         Node newNode=new Node(data);
         if(head==null){
@@ -23,40 +23,26 @@ public class Deletion {
             temp.next=newNode;
         }
     }
-
-    public void display(){
+    public int middleElement(int key){
         Node current=head;
+        int count=0;
         while(current!=null){
-            System.out.print(current.data+" ");
+            if(count==key){
+                return current.data;
+            }
             current=current.next;
+            count++;
         }
-        System.out.println();
-    }
-
-    public void delete(int val){
-        Node temp=head;
-        Node prev=null;
-        if(temp!=null && temp.data==val){
-            head=temp.next;
-            return;
-        }
-        while(temp!=null && temp.data!=val){
-            prev=temp;
-            temp=temp.next;
-        }
-        prev.next=temp.next;
+        return -1;
     }
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        Deletion obj=new Deletion();
+        MiddleElement obj=new MiddleElement();
         int n=in.nextInt();
         for(int i=0;i<n;i++){
             obj.insert(in.nextInt());
         }
-        obj.display();
-        int val=in.nextInt();
-        obj.delete(val);
-        obj.display();
+        System.out.println(obj.middleElement(n/2));
         in.close();
     }
 }

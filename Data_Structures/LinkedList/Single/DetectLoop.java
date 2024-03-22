@@ -1,5 +1,6 @@
+package Single;
 import java.util.*;
-public class MiddleElement {
+public class DetectLoop {
     class Node{
         int data;
         Node next;
@@ -8,7 +9,21 @@ public class MiddleElement {
             this.next=null;
         }
     }
-    private Node head=null;
+    private static Node head=null;
+    public boolean detectLoop(){
+        Node temp=head;
+        HashSet<Integer> nodes=new HashSet<>();
+        while(temp!=null){
+            if(nodes.contains(temp.data)){
+                return true;
+            }
+            else{
+                nodes.add(temp.data);
+                temp=temp.next;
+            }
+        }
+        return false;
+    }
     public void insert(int data){
         Node newNode=new Node(data);
         if(head==null){
@@ -22,26 +37,19 @@ public class MiddleElement {
             temp.next=newNode;
         }
     }
-    public int middleElement(int key){
-        Node current=head;
-        int count=0;
-        while(current!=null){
-            if(count==key){
-                return current.data;
-            }
-            current=current.next;
-            count++;
-        }
-        return -1;
-    }
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        MiddleElement obj=new MiddleElement();
+        DetectLoop obj=new DetectLoop();
         int n=in.nextInt();
         for(int i=0;i<n;i++){
             obj.insert(in.nextInt());
         }
-        System.out.println(obj.middleElement(n/2));
+        if(obj.detectLoop()){
+            System.out.println("LOOP");
+        }
+        else{
+            System.out.println("NO LOOP");
+        }
         in.close();
     }
 }

@@ -1,5 +1,6 @@
+package Single;
 import java.util.*;
-public class InsertAtPosition {
+public class Deletion {
     class Node{
         int data;
         Node next;
@@ -8,6 +9,7 @@ public class InsertAtPosition {
             this.next=null;
         }
     }
+
     public static Node head=null;
     public void insert(int data){
         Node newNode=new Node(data);
@@ -22,43 +24,39 @@ public class InsertAtPosition {
             temp.next=newNode;
         }
     }
+
     public void display(){
         Node current=head;
         while(current!=null){
             System.out.print(current.data+" ");
             current=current.next;
         }
+        System.out.println();
     }
-    public void add(int pos,int data){ 
-        Node newNode=new Node(data);
-        if(pos==1){
-            newNode.next=head;
-            head=newNode;
+
+    public void delete(int val){
+        Node temp=head;
+        Node prev=null;
+        if(temp!=null && temp.data==val){
+            head=temp.next;
+            return;
         }
-        else{
-            Node temp=head;
-            for(int i=1;i<pos-1 && temp!=null;i++){
-                temp=temp.next;
-            }
-            if(temp==null){
-                System.out.println("Invalid position"+pos);
-                return;
-            }
-            newNode.next=temp.next;
-            temp.next=newNode;
+        while(temp!=null && temp.data!=val){
+            prev=temp;
+            temp=temp.next;
         }
+        prev.next=temp.next;
     }
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        InsertAtPosition obj=new InsertAtPosition();
+        Deletion obj=new Deletion();
         int n=in.nextInt();
         for(int i=0;i<n;i++){
             obj.insert(in.nextInt());
         }
         obj.display();
-        int pos=in.nextInt();
         int val=in.nextInt();
-        obj.add(pos,val);
+        obj.delete(val);
         obj.display();
         in.close();
     }
