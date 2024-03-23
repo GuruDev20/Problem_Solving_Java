@@ -2,7 +2,7 @@ import java.util.*;
 public class GraphDFS {
     ArrayList<ArrayList<Integer>> adj=new ArrayList<>();
     public GraphDFS(int v){
-        for(int i=0;i<v;i++){
+        for(int i=0;i<=v;i++){
             adj.add(new ArrayList<Integer>());
         }
     }
@@ -44,10 +44,7 @@ public class GraphDFS {
         for(int i=0;i<edges;i++){
             graph.addEdges(in.nextInt(),in.nextInt());
         }
-        System.out.println("Enter starting vertex: ");
-        int start=in.nextInt();
-        System.out.println("DFS Traversal");
-        graph.dfs(start);
+        graph.dfs(0);
         System.out.println();
         graph.display();
         in.close();
