@@ -34,32 +34,34 @@ public class DeletionBST {
         root=deleteNode(root,val);
     }
     public Node deleteNode(Node node,int val){
-        if(node.data==val){
-            if(root.left==null && root.right==null){
-                return null;
-            }
-            else if(node.left==null && node.right!=null){
-                return node.right;
-            }
-            else if(node.left!=null && node.right==null){
-                return node.left;
-            }
-            else {
-                Node temp=node.right;
-                while(temp.left!=null){
-                    temp=temp.left;
-                }
-                node.data=temp.data;
-                deleteNode(node.right,temp.data);
-            }
+        if(node==null){
+            return node;
         }
-        else if(val<node.data){
+        if(val<node.data){
             node.left=deleteNode(node.left,val);
         }
         else if(val>node.data){
-            node.right= deleteNode(node.right,val);
+            node.right=deleteNode(node.right,val);
+        }
+        else{
+            if(node.left==null){
+                return node.right;
+            }
+            else if(node.right==null){
+                return node.left;
+            }
+            node.data=minValue(node.right);
+            node.right=deleteNode(node.right,node.data);
         }
         return node;
+    }
+    public static int minValue(Node node){
+        int min=node.data;
+        while(node.left!=null){
+            min=node.left.data;
+            node=node.left;
+        }
+        return min;
     }
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
@@ -70,7 +72,7 @@ public class DeletionBST {
         }
         obj.inorder(root);
         int val=in.nextInt();
-        obj.deleteNode(root,val);
+        obj.deleteRec(val);
         obj.inorder(root);
         in.close();
     }

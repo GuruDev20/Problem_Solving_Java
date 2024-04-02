@@ -51,7 +51,6 @@ public class LevelOrderTraversal {
             printLevelOrder(node.left,level-1);
             printLevelOrder(node.right,level-1);
         }
-
     }
     public void levelOrder(Node node){
         int height=treeHeight(root);
