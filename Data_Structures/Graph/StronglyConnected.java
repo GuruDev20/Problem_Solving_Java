@@ -39,7 +39,7 @@ public class StronglyConnected {
                 dfsUtil(i,visited,stack);
             }
         }
-        @SuppressWarnings("unused")
+        // @SuppressWarnings("unused")
         ArrayList<ArrayList<Integer>> transpose=transposeGraph();
         Arrays.fill(visited,false);
         dfsUtil(stack.pop(),visited,new Stack<>());
