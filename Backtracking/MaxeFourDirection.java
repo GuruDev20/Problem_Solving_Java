@@ -1,17 +1,23 @@
 package Backtracking;
 import java.util.*;
-public class Backtracking1{
+public class MaxeFourDirection{
     public static boolean findSolution(int i,int j,int[][] a,int[][] sol,int n){
         if(i==n-1 && j==n-1 && a[i][j]==0){
             sol[i][j]=1;
             return true;
         }
-        if(i>=0 && j>=0 && i<n && j<n && a[i][j]==0){
+        if(i>=0 && i<n && j>=0 && j<n && a[i][j]==0 && sol[i][j]==0){
             sol[i][j]=1;
-            if(findSolution(i+1,j,a,sol,n)){
+            if(findSolution(i,j+1,a,sol,n)){
                 return true;
             }
-            if(findSolution(i,j+1,a,sol,n)){
+            else if(findSolution(i+1,j,a,sol,n)){
+                return true;
+            }
+            else if(findSolution(i,j-1,a,sol,n)){
+                return true;
+            }
+            else if(findSolution(i-1,j,a,sol,n)){
                 return true;
             }
             sol[i][j]=0;

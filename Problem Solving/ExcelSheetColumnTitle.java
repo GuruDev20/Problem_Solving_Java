@@ -9,7 +9,6 @@ class Solution {
             result = digit + result;
             columnNumber /= 26;
         }
-
         return result;
     }
 

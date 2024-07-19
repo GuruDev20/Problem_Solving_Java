@@ -1,6 +1,6 @@
 package Backtracking;
 import java.util.*;
-public class Backtracking3{
+public class MazeFourDirectionWithPoints{
     public static boolean findSolution(int i,int j,int[][] a,int[][] sol,int n){
         if(i==n-1 && j==n-1 && a[i][j]==0){
             sol[i][j]=1;
