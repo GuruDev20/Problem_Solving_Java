@@ -32,7 +32,7 @@ public class InsertAtPosition {
     }
     public void add(int pos,int data){ 
         Node newNode=new Node(data);
-        if(pos==1){
+        if(pos==0){
             newNode.next=head;
             head=newNode;
         }
