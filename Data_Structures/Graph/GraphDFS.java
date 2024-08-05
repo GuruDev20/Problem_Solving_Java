@@ -1,8 +1,8 @@
 import java.util.*;
 public class GraphDFS {
-    ArrayList<ArrayList<Integer>> adj=new ArrayList<>();
+    static ArrayList<ArrayList<Integer>> adj=new ArrayList<>();
     public GraphDFS(int v){
-        for(int i=0;i<=v;i++){
+        for(int i=0;i<v;i++){
             adj.add(new ArrayList<Integer>());
         }
     }
@@ -46,7 +46,7 @@ public class GraphDFS {
         }
         graph.dfs(0);
         System.out.println();
-        graph.display();
+        System.out.println(adj);
         in.close();
     }
 }
