@@ -1,4 +1,4 @@
-package Backtracking;
+package Backtracking.Problem_Solving;
 import java.util.*;
 public class MinimumSetpsInInfinite2DGrid {
     public static int minSteps(int x1,int y1,int x2,int y2){

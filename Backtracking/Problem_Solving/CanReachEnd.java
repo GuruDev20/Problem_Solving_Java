@@ -1,4 +1,4 @@
-package Backtracking;
+package Backtracking.Problem_Solving;
 import java.util.*;
 public class CanReachEnd {
     public static boolean canReach(int[] a,int n){

@@ -1,4 +1,4 @@
-package Backtracking;
+package Backtracking.Problem_Solving;
 import java.util.*;
 public class SudokuSolver{
     private static int iterationCount=1200;

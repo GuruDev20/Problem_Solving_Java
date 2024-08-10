@@ -1,4 +1,4 @@
-package Backtracking;
+package Backtracking.Combinations;
 import java.util.*;
 public class WordBreak {
     static String[] dict={"mobile","it","vac","itvac","man","mango","icecream","and","go","i","love","ice","cream"};

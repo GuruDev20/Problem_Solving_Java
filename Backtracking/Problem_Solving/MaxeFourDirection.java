@@ -1,6 +1,6 @@
-package Backtracking;
+package Backtracking.Problem_Solving;
 import java.util.*;
-public class MazeFourDirectionWithPoints{
+public class MaxeFourDirection{
     public static boolean findSolution(int i,int j,int[][] a,int[][] sol,int n){
         if(i==n-1 && j==n-1 && a[i][j]==0){
             sol[i][j]=1;
@@ -35,9 +35,7 @@ public class MazeFourDirectionWithPoints{
                 a[i][j]=in.nextInt();
             }
         }
-        int starti=in.nextInt();
-        int startj=in.nextInt();
-        if(findSolution(starti,startj,a,sol,n)){
+        if(findSolution(0,0,a,sol,n)){
             for(int i=0;i<n;i++){
                 for(int j=0;j<n;j++){
                     System.out.print(sol[i][j]+" ");

@@ -1,4 +1,4 @@
-package Backtracking;
+package Backtracking.Permutations;
 import java.util.*;
 public class FindAllDistinctCombinationToReachTarget {
     public static void findCombinations(int[] a,int n,int target){
