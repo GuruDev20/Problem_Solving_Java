@@ -1,5 +1,5 @@
 import java.util.*;
-public class Skyline{
+public class SkyLine{
     public static List<List<Integer>> getSkyline(int[][] buildings) {
         List<List<Integer>> result=new ArrayList<>();
         List<int[]> heights=new ArrayList<>();
@@ -55,5 +55,6 @@ public class Skyline{
             }
         }
         System.out.println("]");
+        in.close();
     }
 }
