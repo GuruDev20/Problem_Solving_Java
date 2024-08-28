@@ -1,3 +1,4 @@
+package Data_Structures.Graph;
 import java.util.*;
 public class CountOfCompleteConnectedComponents {
     public static void dfs(List<List<Integer>> graph,int node,boolean[] visited,List<Integer> comp){

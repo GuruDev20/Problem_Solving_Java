@@ -1,3 +1,4 @@
+package Data_Structures.Graph;
 import java.util.*;
 public class GraphCycleContainsOrNot {
     ArrayList<ArrayList<Integer>> adj=new ArrayList<>();

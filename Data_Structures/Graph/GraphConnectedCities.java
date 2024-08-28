@@ -1,3 +1,4 @@
+package Data_Structures.Graph;
 import java.util.*;
 public class GraphConnectedCities {
     public static void dfs(int[][] a,int i,boolean[] visited){

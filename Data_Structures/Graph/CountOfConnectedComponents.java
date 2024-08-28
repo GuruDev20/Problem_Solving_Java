@@ -1,4 +1,4 @@
-
+package Data_Structures.Graph;
 import java.util.*;
 public class CountOfConnectedComponents {
     ArrayList<ArrayList<Integer>> adj=new ArrayList<>();

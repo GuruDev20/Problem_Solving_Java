@@ -1,3 +1,4 @@
+package Data_Structures.Graph;
 import java.util.*;
 public class AllPathsFromSource {
     public static void dfs(int[][] graph,int v,List<Integer> temp,List<List<Integer>> res){
